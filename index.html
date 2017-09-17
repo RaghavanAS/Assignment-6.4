@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>JS to dynamically display elements</title>
+        <!-- HTML5 shim for IE8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+      <script src=“https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js”></script>
+    <![endif]-->
+<!-- styling the table -->
+<style type="text/css">
+body
+{
+    counter-reset: Serial;           /* Set the Serial counter to 0 */
+}
+table{
+display:none;
+}
+
+th,td,tr{
+border: 2px solid;
+}
+td:first-child:before{
+counter-increment: Serial;      /* Increment the Serial counter */
+content:  counter(Serial); /* Display the counter */
+
+}
+</style>
+<script type="text/javascript">
+//fucntion when the page loads
+onload=function(){
+//checking if ID exists
+if(!document.getElementById("example") || !document.createTextNode) return;
+// acquring the number of rows and columns
+var rows = document.getElementById("example").getElementsByTagName("tbody")[0].getElementsByTagName('tr');
+var columns=document.getElementById("example").getElementsByTagName("thead")[0].getElementsByTagName('th');
+// displying table dynamically
+document.getElementById("example").style.display='block';
+document.getElementById("Div1").innerHTML +=" <h2>Displaying Table Dynamically using Javascript</h2> ";
+document.getElementById("Div2").innerHTML +=" <br><br><h2>No. Of Rows "+rows.length+"</h2><br>";
+document.getElementById("Div2").innerHTML +=" <h2>No. Of Columns "+columns.length+"</h2>";    
+}
+
+	</script>
+
+</head>
+<body>
+<!-- Header -->
+<header>
+<h1> Assignment 6.4 </h1>
+</header>
+<!-- main section -->
+<main id="mainSection">
+<section id="subSection">
+<div id="Div1"></div>
+<table id="example" class="display"  >
+        <thead>
+                   <tr>
+                   <th>S.NO</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+<tbody>
+            <tr>
+                <td></td>
+                <td>Raghavan</td>
+                <td>System Architect</td>
+                <td>Hyderabad</td>
+                <td>27</td>
+                <td>2013/09/23</td>
+                <td>INR 32,800</td>
+            </tr>
+            <tr>
+            <td></td>
+                <td>Neeraj</td>
+                <td>Accountant</td>
+                <td>Bangalore</td>
+                <td>26</td>
+                <td>2014/07/25</td>
+                <td>INR 17,750</td>
+            </tr>
+            <tr>
+            <td></td>
+                <td>Rajesh</td>
+                <td>Junior Technical Architect</td>
+                <td>Chennai</td>
+                <td>25</td>
+                <td>2015/01/12</td>
+                <td>INR 16,000</td>
+            </tr>
+            <tr>
+            <td></td>
+                <td>Rishi</td>
+                <td>Senior Javascript Developer</td>
+                <td>Trivandrum</td>
+                <td>28</td>
+                <td>2012/03/29</td>
+                <td>INR 43,060</td>
+            </tr>
+<tbody>
+</table>
+<div id="Div2"></div>
+</section>
+</main>
+</body>
+</html>
